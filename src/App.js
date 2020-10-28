@@ -2,13 +2,15 @@ import "./App.css";
 
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import generateArray from "./generateArray";
+import { yupResolver } from "@hookform/resolvers/yup";
 
-const MAX_INPUT_VALUE = 1_000_000;
-const MIN_INPUT_VALUE = -1_000_000;
+import generateArray from "./generateArray";
+import schema from "./schema";
 
 function App() {
-  const { register, handleSubmit } = useForm();
+  const { register, errors, handleSubmit } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const [outputPlainText, setOutputPlainText] = useState("");
   const [outputCurlyBrackets, setOutputCurlyBrackets] = useState("");
@@ -31,38 +33,33 @@ function App() {
         <label>
           Array size
           <input
-            ref={register({ required: true, min: 1, max: MAX_INPUT_VALUE })}
+            ref={register}
             type="number"
             name="arraySize"
             id="array-size"
           />
         </label>
+        {errors.arraySize?.message}
         <label>
           Minimum value
           <input
-            ref={register({
-              required: true,
-              min: MIN_INPUT_VALUE,
-              max: MAX_INPUT_VALUE,
-            })}
+            ref={register}
             type="number"
             name="minimumValue"
             id="minimum-value"
           />
         </label>
+        {errors.minimumValue?.message}
         <label>
           Maximum value
           <input
-            ref={register({
-              required: true,
-              min: MIN_INPUT_VALUE,
-              max: MAX_INPUT_VALUE,
-            })}
+            ref={register}
             type="number"
             name="maximumValue"
             id="maximum-value"
           />
         </label>
+        {errors.maximumValue?.message}
         <label>
           Allow repeated elements?
           <input
@@ -72,6 +69,7 @@ function App() {
             id="allow-repeated"
           />
         </label>
+        {errors.allowRepeated?.message}
         <button type="submit">Submit</button>
       </form>
 
