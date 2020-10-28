@@ -1,4 +1,4 @@
-import "./App.css";
+import "bulma/css/bulma.css";
 
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -27,81 +27,114 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Random Array Generator</h1>
-      <form action="" onSubmit={handleSubmit(onSubmit)}>
-        <label>
-          Array size
-          <input
-            ref={register}
-            type="number"
-            name="arraySize"
-            id="array-size"
-          />
-        </label>
-        {errors.arraySize?.message}
-        <label>
-          Minimum value
-          <input
-            ref={register}
-            type="number"
-            name="minimumValue"
-            id="minimum-value"
-          />
-        </label>
-        {errors.minimumValue?.message}
-        <label>
-          Maximum value
-          <input
-            ref={register}
-            type="number"
-            name="maximumValue"
-            id="maximum-value"
-          />
-        </label>
-        {errors.maximumValue?.message}
-        <label>
-          Allow repeated elements?
-          <input
-            ref={register}
-            type="checkbox"
-            name="allowRepeated"
-            id="allow-repeated"
-          />
-        </label>
-        {errors.allowRepeated?.message}
-        <button type="submit">Submit</button>
-      </form>
+    <div className="container">
+      <div className="columns is-centered">
+        <div className="column is-half">
+          <h1 className="title">Random Array Generator</h1>
+          <form action="" onSubmit={handleSubmit(onSubmit)}>
+            <div className="field">
+              <label htmlFor="array-size" class="label">
+                Array size
+              </label>
+              <div className="control">
+                <input
+                  ref={register}
+                  type="number"
+                  name="arraySize"
+                  id="array-size"
+                  className="input"
+                />
+              </div>
+              <p className="has-text-danger">{errors.arraySize?.message}</p>
+            </div>
+            <div className="field">
+              <label htmlFor="minimum-value" class="label">
+                Minimum value
+              </label>
+              <div className="control">
+                <input
+                  ref={register}
+                  type="number"
+                  name="minimumValue"
+                  id="minimum-value"
+                  className="input"
+                />
+              </div>
+              <p className="has-text-danger">{errors.minimumValue?.message}</p>
+            </div>
+            <div className="field">
+              <label htmlFor="maximum-value" class="label">
+                Maximum value
+              </label>
+              <div className="control">
+                <input
+                  ref={register}
+                  type="number"
+                  name="maximumValue"
+                  id="maximum-value"
+                  className="input"
+                />
+              </div>
+              <p className="has-text-danger">{errors.maximumValue?.message}</p>
+            </div>
+            <div className="field">
+              <label htmlFor="allow-repeated" class="label">
+                Allow repeated elements?
+              </label>
+              <input
+                ref={register}
+                type="checkbox"
+                name="allowRepeated"
+                id="allow-repeated"
+                className="checkbox"
+              />
+              <p className="has-text-danger">{errors.allowRepeated?.message}</p>
+            </div>
 
-      <label>
-        Plain text
-        <textarea
-          value={outputPlainText}
-          readOnly
-          rows="5"
-          cols="80"
-        ></textarea>
-      </label>
+            <div className="control">
+              <button type="submit" className="button is-primary">
+                Submit
+              </button>
+            </div>
+          </form>
 
-      <label>
-        Curly brackets (C++ style)
-        <textarea
-          value={outputCurlyBrackets}
-          readOnly
-          rows="5"
-          cols="80"
-        ></textarea>
-      </label>
+          <div className="field">
+            <label htmlFor="plain-text">Plain text</label>
+            <div className="control">
+              <textarea
+                id="plain-text"
+                value={outputPlainText}
+                readOnly
+                class="textarea"
+              ></textarea>
+            </div>
+          </div>
 
-      <label>
-        Square brackets (JS/Python style)
-        <textarea
-          value={outputSquareBrackets}
-          readOnly
-          rows="5"
-          cols="80"
-        ></textarea>
-      </label>
+          <div className="field">
+            <label htmlFor="curly-brackets">Curly brackets (C++ style)</label>
+            <div className="control">
+              <textarea
+                value={outputCurlyBrackets}
+                readOnly
+                class="textarea"
+              ></textarea>
+            </div>
+          </div>
+
+          <div className="field">
+            <label htmlFor="square-brackets">
+              Square brackets (JS/Python style)
+            </label>
+            <div className="control">
+              <textarea
+                value={outputSquareBrackets}
+                readOnly
+                class="textarea"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
