@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Container from "@material-ui/core/Container";
+import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import generateArray from "./generateArray";
@@ -25,61 +32,96 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Random Array Generator</h1>
+    <Container component="main" maxWidth="sm">
+      <Typography component="h1" variant="h4" align="center">
+        Random Array Generator
+      </Typography>
       <form action="" onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="array-size">Array size</label>
-
-        <input ref={register} type="number" name="arraySize" id="array-size" />
-        <p>{errors.arraySize?.message}</p>
-
-        <label htmlFor="minimum-value">Minimum value</label>
-
-        <input
-          ref={register}
+        <TextField
+          variant="outlined"
+          margin="normal"
+          fullWidth
+          inputRef={register}
+          id="array-size"
+          name="arraySize"
+          label="Array size"
           type="number"
-          name="minimumValue"
+        />
+        <Typography component="p" color="error">
+          {errors.arraySize?.message}
+        </Typography>
+
+        <TextField
+          variant="outlined"
+          margin="normal"
+          fullWidth
+          inputRef={register}
           id="minimum-value"
-        />
-        <p>{errors.minimumValue?.message}</p>
-
-        <label htmlFor="maximum-value">Maximum value</label>
-
-        <input
-          ref={register}
+          name="minimumValue"
+          label="Minimum value"
           type="number"
-          name="maximumValue"
+        />
+        <Typography component="p" color="error">
+          {errors.minimumValue?.message}
+        </Typography>
+
+        <TextField
+          variant="outlined"
+          margin="normal"
+          fullWidth
+          inputRef={register}
           id="maximum-value"
+          name="maximumValue"
+          label="Maximum value"
+          type="number"
         />
-        <p>{errors.maximumValue?.message}</p>
+        <Typography component="p" color="error">
+          {errors.maximumValue?.message}
+        </Typography>
 
-        <label htmlFor="allow-repeated">Allow repeated elements?</label>
-        <input
-          ref={register}
-          type="checkbox"
-          name="allowRepeated"
-          id="allow-repeated"
+        <FormControlLabel
+          control={
+            <Checkbox
+              color="primary"
+              inputRef={register}
+              id="allow-repeated"
+              name="allowRepeated"
+            />
+          }
+          label="Allow repeated elements"
         />
-        <p>{errors.allowRepeated?.message}</p>
+        <Typography component="p" color="error">
+          {errors.allowRepeated?.message}
+        </Typography>
 
-        <button type="submit">Submit</button>
+        <Button type="submit" variant="contained" color="primary">
+          Submit
+        </Button>
       </form>
 
-      <p>Plain text</p>
-      <pre>
-        <code>{outputPlainText}</code>
-      </pre>
-
-      <p>Curly brackets (C++ style)</p>
-      <pre>
-        <code>{outputCurlyBrackets}</code>
-      </pre>
-
-      <p>Square brackets (JS/Python style)</p>
-      <pre>
-        <code>{outputSquareBrackets}</code>
-      </pre>
-    </div>
+      <Box p={5}>
+        <Typography component="p">
+          Plain text
+        </Typography>
+        <Box component="pre" overflow="scroll" p={1} fontSize={18}>
+          <Box component="code">{outputPlainText}</Box>
+        </Box>
+  
+        <Typography component="p">
+          Curly brackets (C++ style)
+        </Typography>
+        <Box component="pre" overflow="scroll" p={1} fontSize={18}>
+          <Box component="code">{outputCurlyBrackets}</Box>
+        </Box>
+  
+        <Typography component="p">
+          Square brackets (JS/Python style)
+        </Typography>
+        <Box component="pre" overflow="scroll" p={1} fontSize={18}>
+          <Box component="code">{outputSquareBrackets}</Box>
+        </Box>
+      </Box>
+    </Container>
   );
 }
 
