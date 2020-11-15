@@ -9,6 +9,8 @@ import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import OutputBox from "./OutputBox";
+
 import generateArray from "./generateArray";
 import schema from "./schema";
 
@@ -100,26 +102,15 @@ function App() {
       </form>
 
       <Box p={5}>
-        <Typography component="p">
-          Plain text
-        </Typography>
-        <Box component="pre" overflow="scroll" p={1} fontSize={18}>
-          <Box component="code">{outputPlainText}</Box>
-        </Box>
-  
-        <Typography component="p">
-          Curly brackets (C++ style)
-        </Typography>
-        <Box component="pre" overflow="scroll" p={1} fontSize={18}>
-          <Box component="code">{outputCurlyBrackets}</Box>
-        </Box>
-  
-        <Typography component="p">
-          Square brackets (JS/Python style)
-        </Typography>
-        <Box component="pre" overflow="scroll" p={1} fontSize={18}>
-          <Box component="code">{outputSquareBrackets}</Box>
-        </Box>
+        <OutputBox title="Plain text" output={outputPlainText} />
+        <OutputBox
+          title="Curly brackets (C++ style)"
+          output={outputCurlyBrackets}
+        />
+        <OutputBox
+          title="Square brackets (JS/Python style)"
+          output={outputSquareBrackets}
+        />
       </Box>
     </Container>
   );
