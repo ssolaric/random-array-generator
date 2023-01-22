@@ -21,23 +21,33 @@ function App() {
     const resultPlainText = `${array.length}\n${array.join(" ")}`;
     setOutput(resultPlainText);
   };
+
   return (
     <div>
       <h1>Hello world</h1>
-      <form action="" onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           Array size
-          <input type="number" {...register("arraySize")} />
+          <input
+            type="number"
+            {...register("arraySize", { valueAsNumber: true })}
+          />
         </label>
         <p>{errors.arraySize?.message}</p>
         <label>
           Minimum value
-          <input type="number" {...register("minimumValue")} />
+          <input
+            type="number"
+            {...register("minimumValue", { valueAsNumber: true })}
+          />
         </label>
         <p>{errors.minimumValue?.message}</p>
         <label>
           Maximum value
-          <input type="number" {...register("maximumValue")} />
+          <input
+            type="number"
+            {...register("maximumValue", { valueAsNumber: true })}
+          />
         </label>
         <p>{errors.maximumValue?.message}</p>
         <label>

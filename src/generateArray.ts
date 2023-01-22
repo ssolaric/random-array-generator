@@ -16,6 +16,7 @@ function sampleWithoutRepetition(lo: number, hi: number, k: number): number[] {
     } while (selected.has(num));
     selected.add(num);
   }
+
   return Array.from(selected);
 }
 
