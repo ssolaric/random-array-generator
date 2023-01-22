@@ -1,4 +1,5 @@
-import generateArray from "./generateArray";
+import { describe, expect, it } from "vitest";
+import generateArray from "../src/generateArray";
 
 describe("generate random numbers in a range without repetition", () => {
   it("generates random numbers in a valid range", () => {
@@ -11,7 +12,7 @@ describe("generate random numbers in a range without repetition", () => {
       maximumValue,
       allowRepeated: false,
     });
-    for (let x of array) {
+    for (const x of array) {
       expect(x).toBeGreaterThanOrEqual(minimumValue);
       expect(x).toBeLessThanOrEqual(maximumValue);
     }
@@ -29,7 +30,7 @@ describe("generate random numbers in a range without repetition", () => {
         minimumValue,
         maximumValue,
         allowRepeated: false,
-      })
+      }),
     ).toThrow();
   });
 });
@@ -43,9 +44,9 @@ describe("generate random numbers in a range with repetition", () => {
       arraySize,
       minimumValue,
       maximumValue,
-      allowRepeated: false,
+      allowRepeated: true,
     });
-    for (let x of array) {
+    for (const x of array) {
       expect(x).toBeGreaterThanOrEqual(minimumValue);
       expect(x).toBeLessThanOrEqual(maximumValue);
     }
