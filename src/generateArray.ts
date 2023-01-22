@@ -1,13 +1,14 @@
 import random from "lodash.random";
+import { FormInput } from "./schema";
 
 // Get k different values from the interval [lo, hi]
-function sampleWithoutRepetition(lo, hi, k) {
+function sampleWithoutRepetition(lo: number, hi: number, k: number): number[] {
   if (k > hi - lo + 1) {
     throw new Error(
       "The array size must not be greater than the length of the allowed range."
     );
   }
-  const selected = new Set();
+  const selected = new Set<number>();
   for (let i = 0; i < k; i++) {
     let num;
     do {
@@ -19,7 +20,7 @@ function sampleWithoutRepetition(lo, hi, k) {
 }
 
 // Get k possibly repeated values from the interval [lo, hi]
-function sampleWithRepetition(lo, hi, k) {
+function sampleWithRepetition(lo: number, hi: number, k: number): number[] {
   const result = [];
   for (let i = 0; i < k; i++) {
     result.push(random(lo, hi, false));
@@ -32,7 +33,7 @@ export default function generateArray({
   minimumValue,
   maximumValue,
   allowRepeated,
-}) {
+}: FormInput): number[] {
   const sample = allowRepeated ? sampleWithRepetition : sampleWithoutRepetition;
   return sample(minimumValue, maximumValue, arraySize);
 }

@@ -1,22 +1,22 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import generateArray from "./generateArray";
-import schema from "./schema";
+import { schema, FormInput } from "./schema";
 
 function App() {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitSuccessful, isValid },
-  } = useForm({
-    resolver: yupResolver(schema),
+  } = useForm<FormInput>({
+    resolver: zodResolver(schema),
   });
 
   const [output, setOutput] = useState("");
 
-  const onSubmit = (data) => {
+  const onSubmit: SubmitHandler<FormInput> = (data) => {
     const array = generateArray(data);
     const resultPlainText = `${array.length}\n${array.join(" ")}`;
     setOutput(resultPlainText);
