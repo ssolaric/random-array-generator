@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import generateArray from "./generateArray";
 
 describe("generate random numbers in a range without repetition", () => {
