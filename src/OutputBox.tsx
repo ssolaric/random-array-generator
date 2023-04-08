@@ -1,8 +1,6 @@
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import CopyIcon from "./CopyIcon";
 
-// function CopyButton({ output }) {}
-
 type OutputBoxProps = {
   title: string;
   output: string;

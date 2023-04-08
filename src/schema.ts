@@ -30,8 +30,7 @@ const schema = z
         type: "number",
         inclusive: true,
         path: ["arraySize"],
-        message:
-          `The array size must not be greater than the length of the allowed range. The current length of the allowed range is ${allowedRangeLength}.`,
+        message: `The array size must not be greater than the length of the allowed range. The current length of the allowed range is ${allowedRangeLength}.`,
       });
     }
   });

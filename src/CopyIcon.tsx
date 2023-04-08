@@ -10,7 +10,7 @@ function CopyIcon({ copied }: CopyIconProps) {
   return (
     <div className="relative">
       <div className="absolute -right-1">
-        <Icon size={24} />
+        <Icon size={20} />
       </div>
     </div>
   );
