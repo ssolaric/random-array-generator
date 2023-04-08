@@ -10,12 +10,14 @@
     "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^17.0.1",
     "react-hook-form": "^7.41.5",
+    "react-icons": "^4.8.0",
     "zod": "^3.20.2"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
     "@types/lodash.random": "^3.2.7",
     "@types/react": "^17.0.0",
+    "@types/react-copy-to-clipboard": "^5.0.4",
     "@types/react-dom": "^17.0.0",
     "@vitejs/plugin-react-swc": "^3.0.0",
     "autoprefixer": "^10.4.13",
