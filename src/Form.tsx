@@ -16,6 +16,7 @@ function Form({ register, handleSubmit, errors }: FormProps) {
           Array size
         </label>
         <input
+          id="arraySize"
           className="input input-bordered input-primary text-lg"
           type="number"
           {...register("arraySize", { valueAsNumber: true })}
@@ -27,6 +28,7 @@ function Form({ register, handleSubmit, errors }: FormProps) {
           Minimum value
         </label>
         <input
+          id="minimumValue"
           className="input input-bordered input-primary text-lg"
           type="number"
           {...register("minimumValue", { valueAsNumber: true })}
@@ -38,6 +40,7 @@ function Form({ register, handleSubmit, errors }: FormProps) {
           Maximum value
         </label>
         <input
+          id="maximumValue"
           className="input input-bordered input-primary text-lg"
           type="number"
           {...register("maximumValue", { valueAsNumber: true })}
@@ -47,6 +50,7 @@ function Form({ register, handleSubmit, errors }: FormProps) {
       <div className="form-control mb-2">
         <label className="label justify-start" htmlFor="allowRepeated">
           <input
+            id="allowRepeated"
             className="checkbox checkbox-primary mr-4"
             defaultChecked
             type="checkbox"
