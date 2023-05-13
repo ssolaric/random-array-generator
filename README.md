@@ -1,4 +1,5 @@
 # [Random Array Generator](https://random-array-generator.netlify.app/)
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/34ca27b1-a7f5-4b5c-b00a-e4ada30d227a/deploy-status)](https://app.netlify.com/sites/random-array-generator/deploys)
 
 A React web application that generates random numbers in the following formats:

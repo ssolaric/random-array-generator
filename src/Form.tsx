@@ -2,11 +2,11 @@ import React from "react";
 import { FieldErrorsImpl, UseFormRegister } from "react-hook-form";
 import { FormInput } from "./schema";
 
-type FormProps = {
+interface FormProps {
   register: UseFormRegister<FormInput>;
   handleSubmit: React.FormEventHandler<HTMLFormElement>;
   errors: Partial<FieldErrorsImpl<FormInput>>;
-};
+}
 
 function Form({ register, handleSubmit, errors }: FormProps) {
   return (

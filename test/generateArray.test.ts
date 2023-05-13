@@ -12,7 +12,7 @@ describe("generate random numbers in a range without repetition", () => {
       maximumValue,
       allowRepeated: false,
     });
-    for (let x of array) {
+    for (const x of array) {
       expect(x).toBeGreaterThanOrEqual(minimumValue);
       expect(x).toBeLessThanOrEqual(maximumValue);
     }
@@ -44,9 +44,9 @@ describe("generate random numbers in a range with repetition", () => {
       arraySize,
       minimumValue,
       maximumValue,
-      allowRepeated: false,
+      allowRepeated: true,
     });
-    for (let x of array) {
+    for (const x of array) {
       expect(x).toBeGreaterThanOrEqual(minimumValue);
       expect(x).toBeLessThanOrEqual(maximumValue);
     }

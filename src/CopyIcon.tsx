@@ -1,9 +1,9 @@
 import React from "react";
 import { FaCopy, FaClipboardCheck } from "react-icons/fa";
 
-type CopyIconProps = {
+interface CopyIconProps {
   copied: boolean;
-};
+}
 
 function CopyIcon({ copied }: CopyIconProps) {
   const Icon = copied ? FaClipboardCheck : FaCopy;

@@ -1,3 +1,4 @@
+import React from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import CopyIcon from "./CopyIcon";
 
